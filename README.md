@@ -52,6 +52,10 @@ También se puede ejecutar un despliegue detallado de los tests si ya se ha lanz
 $ ./binary_mult_test -s
 ```
 
+## Referencias y enlaces:
+
+- [Enlace al repositorio](https://github.com/Eric-Durr/PRCT05-SNOW3G_AES_MULT)
+
 ## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)
