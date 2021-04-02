@@ -5,17 +5,21 @@
 ```SQL
 prct05-multSNOW3G-AES/
 ├─ docs/                                        # Project documentation folder
-│  ├─ PracticaProducto-SNOW3G-AES.pdf           ## P05 - assignment
+│  ├─ html/                                     ## Generated documentation  
 ├─ include/                                     # Library files folder
 │  ├─ Catch2/catch.h                            ## C++ TDD testing framework
 │  ├─ binary_mult.h                             #
+│  ├─ lfsr.h                                    # LFSR class template file
 ├─ src/                                         # Source files folder
 │  ├─ binary_mult.cpp                           ## main program source file
 ├─ test/                                        # Test files folder
 │  ├─ binary_mult.test.h                        ##  
+│  ├─ lfsr.test.h                               ## Tests for LFSR class template  
 │  ├─ includer.test.cpp                         ## Tests core file 
 ├─ .gitignore                                   # Ignored files git config file
 ├─ makefile                                     # C++ tasks automation file
+├─ Doxyfile                                     # Doxygen configuration file 
+├─ PracticaProducto-SNOW3G-AES.pdf              # P05 - assignment
 ├─ README.md                                    # Front repository information file
 ```
 
@@ -56,6 +60,7 @@ $ ./binary_mult_test -s
 
 - [Enlace al repositorio](https://github.com/Eric-Durr/PRCT05-SNOW3G_AES_MULT)
 
+- [Tutorial de Doxygen para C++](https://caiorss.github.io/C-Cpp-Notes/Doxygen-documentation.html)
 ## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)

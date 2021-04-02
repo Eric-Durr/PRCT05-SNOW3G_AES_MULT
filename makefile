@@ -85,6 +85,13 @@ $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	@echo "Compiling: $< -> $@"
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
 
+.PHONY: docs clean
+docs:
+	@echo "Updating documentation"
+	@$(RM) -r $(DOCUMENTATION_PATH) index.html
+	doxygen $(DOXYGEN_CONFIGURATION_FILE_NAME)
+	
+
 .PHONY: all test clean
 test:
 	@echo "Making tests: $(TEST_NAME)"
