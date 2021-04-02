@@ -13,4 +13,5 @@
 
 #define CATCH_CONFIG_MAIN
 #include "../include/Catch2/catch.h"
-#include "binary_mult.test.h"
+#include "lfsr.test.h"
+// #include "binary_mult.test.h"
