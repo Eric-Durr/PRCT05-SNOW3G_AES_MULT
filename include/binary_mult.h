@@ -108,7 +108,7 @@ void byte_print(uint8_t a)
     putchar((a >> i & 1) + '0');
 }
 
-uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option)
+uint8_t s3g_byte_mul(uint8_t &a, uint8_t &b)
 {
 
   uint8_t prod;
@@ -128,24 +128,9 @@ uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option)
       std::cout << "STEP " << ++k << ": \n";
       byte_print(a);
       std::cout << " + ";
-      switch (option)
-      {
-      case AES:
-        byte_print(aes_poly);
-        std::cout << " = ";
-        a = byte_add(a, aes_poly);
-        byte_print(a);
-        std::cout << "\n";
-        break;
-
-      case S3G:
-        byte_print(s3g_poly);
-        std::cout << " = ";
-        a = byte_add(a, s3g_poly);
-        break;
-      default:
-        break;
-      }
+      byte_print(s3g_poly);
+      std::cout << " = ";
+      a = byte_add(a, s3g_poly);
       byte_print(a);
       std::cout << "\n";
     }
@@ -162,4 +147,61 @@ uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option)
     }
   }
   return prod;
+}
+
+uint8_t aes_byte_mul(uint8_t &a, uint8_t &b)
+{
+
+  uint8_t prod;
+
+  (b & (1 << 0)) == 1 ? prod = a : prod = 0x00;
+
+  int k = 0;
+  std::cout << "STEP " << k << ": \n";
+  byte_print(a);
+  std::cout << "\n";
+
+  for (int i = 1; i < 8; i++)
+  {
+    if (((a & (1 << 7)) >> 7) == 0x01)
+    {
+      a <<= 1;
+      std::cout << "STEP " << ++k << ": \n";
+      byte_print(a);
+      std::cout << " + ";
+      byte_print(aes_poly);
+      std::cout << " = ";
+      a = byte_add(a, aes_poly);
+      byte_print(a);
+      std::cout << "\n";
+    }
+    else
+    {
+      a <<= 1;
+      std::cout << "STEP " << ++k << ": \n";
+      byte_print(a);
+      std::cout << "\n";
+    }
+    if (((b & (1 << i)) >> i) == 0x01)
+    {
+      prod = byte_add(prod, a);
+    }
+  }
+  return prod;
+}
+
+uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option, bool snitch = false)
+{
+  switch (option)
+  {
+  case AES:
+    return aes_byte_mul(a, b);
+    break;
+  case S3G:
+    return s3g_byte_mul(a, b);
+    break;
+  default:
+    return 0x00;
+    break;
+  }
 }
