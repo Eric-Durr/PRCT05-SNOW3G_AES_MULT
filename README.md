@@ -2,7 +2,7 @@
 
 ## Estructura del repositorio:
 
-```SQL
+```
 prct05-multSNOW3G-AES/
 ├─ docs/                                        # Project documentation folder
 │  ├─ html/                                     ## Generated documentation  
