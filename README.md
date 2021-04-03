@@ -87,14 +87,6 @@ $ make test
 
 Se compila y ejecuta el conjunto de tests para luego ejecutarlos, de suceder satisfactoriamente debe aparecer lo siguiente por terminal:
 
-```bash
-Making tests: hash_simulator_test
-g++ -o binary_mult_test ./src/entorno.cpp ./src/hormiga.cpp ./test/includer.test.cpp
-./binary_mult_test
-===============================================================================
-All tests passed (38 assertions in 2 test cases)
-```
-
 También se puede ejecutar un despliegue detallado de los tests si ya se ha lanzado el comando anterior:
 
 ```bash
