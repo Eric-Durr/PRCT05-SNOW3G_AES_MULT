@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['taps_10',['taps',['../classLFSR.html#ab30b8e8469af34398d1749fed28db050',1,'LFSR']]],
-  ['to_5fstring_11',['to_string',['../classLFSR.html#a4d88df476441705130e835dd81f3301c',1,'LFSR']]]
+  ['rotate_5fle',['rotate_le',['../classLFSR.html#ab206e86440cda28e61387d08600571fd',1,'LFSR']]],
+  ['rotate_5fri',['rotate_ri',['../classLFSR.html#a90803525cefbf8661d372e89c9c6a73e',1,'LFSR']]]
 ];

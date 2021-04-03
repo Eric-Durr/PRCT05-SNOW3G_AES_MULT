@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['taps_24',['taps',['../classLFSR.html#ab30b8e8469af34398d1749fed28db050',1,'LFSR']]],
-  ['to_5fstring_25',['to_string',['../classLFSR.html#a4d88df476441705130e835dd81f3301c',1,'LFSR']]]
+  ['operator_5b_5d',['operator[]',['../classLFSR.html#ab5789c6e27be491280efcdbf46db7643',1,'LFSR::operator[](int pos) const'],['../classLFSR.html#a1029e0a8fb3f4f6613a3047ff7388953',1,'LFSR::operator[](int pos)']]]
 ];
