@@ -108,6 +108,27 @@ void byte_print(uint8_t a)
     putchar((a >> i & 1) + '0');
 }
 
+/**
+ * @brief byte multiplication function. Two bytes and the algorithm must be provided as arguments.
+ * If desired the trace can be shown by giving true as last argument
+ * 
+ * @param a 
+ * @param b 
+ * @param option 
+ * @param snitch 
+ * @return uint8_t 
+ * 
+ * **usage**
+ * ```cpp
+ * uint8_t my_aes_result byte_mul(0x57, 0x83, aes) //0b11000001
+ * uint8_t my_s3g_result byte_mul(0x57, 0x83, s3g) //0b10010110
+ * ```
+ * 
+ * **Algorithm explained:**
+ * 
+ *
+ */
+
 uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option, bool snitch = false)
 {
 
