@@ -7,6 +7,21 @@
 const uint8_t s3g_poly = 0xA9;
 const uint8_t aes_poly = 0x1B;
 
+enum algortihm
+{
+  AES,
+  S3G
+};
+
+/**
+ * @brief Checks the program command line input. If the input is the desired returns 0
+ * and the main program can proceed.
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
+
 int filter(int argc, char *argv[])
 {
 
@@ -66,19 +81,34 @@ int filter(int argc, char *argv[])
   return 0;
 }
 
+/**
+ * @brief Adds two uint8_t values which expresses a byte from the LFSR, the result is returned
+ * 
+ * @param a 
+ * @param b 
+ * @return uint8_t 
+ */
+
 uint8_t byte_add(const uint8_t &a, const uint8_t &b)
 {
   return a ^ b;
 }
 
-void gal_print(uint8_t a)
+/**
+ * @brief Prints the bits in the command line from the uint8_t byte value.
+ * The number to print is given as argument.
+ * 
+ * @param a 
+ */
+
+void byte_print(uint8_t a)
 {
   int i = 8;
   while (i--)
     putchar((a >> i & 1) + '0');
 }
 
-uint8_t s3g_byte_mul(uint8_t &a, uint8_t &b)
+uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option)
 {
 
   uint8_t prod;
@@ -87,7 +117,7 @@ uint8_t s3g_byte_mul(uint8_t &a, uint8_t &b)
 
   int k = 0;
   std::cout << "STEP " << k << ": \n";
-  gal_print(a);
+  byte_print(a);
   std::cout << "\n";
 
   for (int i = 1; i < 8; i++)
@@ -96,60 +126,34 @@ uint8_t s3g_byte_mul(uint8_t &a, uint8_t &b)
     {
       a <<= 1;
       std::cout << "STEP " << ++k << ": \n";
-      gal_print(a);
+      byte_print(a);
       std::cout << " + ";
-      gal_print(s3g_poly);
-      std::cout << " = ";
-      a = byte_add(a, s3g_poly);
-      gal_print(a);
+      switch (option)
+      {
+      case AES:
+        byte_print(aes_poly);
+        std::cout << " = ";
+        a = byte_add(a, aes_poly);
+        byte_print(a);
+        std::cout << "\n";
+        break;
+
+      case S3G:
+        byte_print(s3g_poly);
+        std::cout << " = ";
+        a = byte_add(a, s3g_poly);
+        break;
+      default:
+        break;
+      }
+      byte_print(a);
       std::cout << "\n";
     }
     else
     {
       a <<= 1;
       std::cout << "STEP " << ++k << ": \n";
-      gal_print(a);
-      std::cout << "\n";
-    }
-    if (((b & (1 << i)) >> i) == 0x01)
-    {
-      prod = byte_add(prod, a);
-    }
-  }
-  return prod;
-}
-
-uint8_t aes_byte_mul(uint8_t &a, uint8_t &b)
-{
-
-  uint8_t prod;
-
-  (b & (1 << 0)) == 1 ? prod = a : prod = 0x00;
-
-  int k = 0;
-  std::cout << "STEP " << k << ": \n";
-  gal_print(a);
-  std::cout << "\n";
-
-  for (int i = 1; i < 8; i++)
-  {
-    if (((a & (1 << 7)) >> 7) == 0x01)
-    {
-      a <<= 1;
-      std::cout << "STEP " << ++k << ": \n";
-      gal_print(a);
-      std::cout << " + ";
-      gal_print(aes_poly);
-      std::cout << " = ";
-      a = byte_add(a, aes_poly);
-      gal_print(a);
-      std::cout << "\n";
-    }
-    else
-    {
-      a <<= 1;
-      std::cout << "STEP " << ++k << ": \n";
-      gal_print(a);
+      byte_print(a);
       std::cout << "\n";
     }
     if (((b & (1 << i)) >> i) == 0x01)

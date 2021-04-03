@@ -1,7 +1,5 @@
 #include "../include/binary_mult.h"
 
-typedef uint8_t gal8; /* Galois field of order 2^8 */
-
 int main(int argc, char *argv[])
 {
   int flag = filter(argc, argv);
@@ -18,10 +16,10 @@ int main(int argc, char *argv[])
   uint8_t a = std::stoi(std::string{argv[2]}.substr(2, 2), 0, 16);
   uint8_t b = std::stoi(std::string{argv[3]}.substr(2, 2), 0, 16);
 
-  uint8_t prod = std::string{argv[1]} == "aes" ? aes_byte_mul(a, b) : s3g_byte_mul(a, b);
+  uint8_t prod = std::string{argv[1]} == "aes" ? byte_mul(a, b, AES) : byte_mul(a, b, S3G);
 
   std::cout << "result :";
-  gal_print(prod);
+  byte_print(prod);
   std::cout << "\n";
   return 0;
 }
