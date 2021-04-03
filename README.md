@@ -1,6 +1,6 @@
 # SSI P05 - MULTIPLICACIÓN EN SNOW 3G y AES
 
-## Estructura del repositorio:
+**Estructura del repositorio:**
 
 ```
 prct05-multSNOW3G-AES/
@@ -23,15 +23,15 @@ prct05-multSNOW3G-AES/
 ├─ README.md                                    # Front repository information file
 ```
 
-## Uso
+**Uso**
 
-### **Compilación del ejecutable**
+**Compilación del ejecutable**
 
 ```bash
 $ make
 ```
 
-### **Ejecución del programa**
+**Ejecución del programa**
 
 ```bash
 ./binary_mult <aes/s3g> <num1> <num2> [trace]
@@ -80,7 +80,7 @@ result :10010110
 
 ```
 
-### **Lanzamiento de los tests**
+**Lanzamiento de los tests**
 ```bash
 $ make test
 ```
@@ -101,18 +101,22 @@ También se puede ejecutar un despliegue detallado de los tests si ya se ha lanz
 $ ./binary_mult_test -s
 ```
 
-## Referencias y enlaces:
+**Referencias y enlaces:**
 
 - [Enlace al repositorio](https://github.com/Eric-Durr/PRCT05-SNOW3G_AES_MULT)
 - [Tutorial de Doxygen para C++](https://caiorss.github.io/C-Cpp-Notes/Doxygen-documentation.html)
+- [Ejemplo 1 de repositorio de SNOW-3G](https://github.com/KsirbJ/SNOW-3G)
+- [COnvert hex string to integer](https://www.includehelp.com/stl/convert-hex-string-to-integer-using-stoi-function-in-cpp-stl.aspx)
+- [C++ bitwise operators - tutorials point](https://www.tutorialspoint.com/cplusplus/cpp_bitwise_operators.htm)
+- [how to read specific bits with bitwise operators - stack overflow](https://stackoverflow.com/questions/19626652/how-to-read-specific-bits-of-an-unsigned-int)
 
 **[Documentación online](https://eric-durr.github.io/PRCT05-SNOW3G_AES_MULT/)**
 
-## Licencia
+**Licencia**
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Autoría
+**Autoría**
 
 - Eric Dürr Sierra - [alu0101027005](alu0101027005@ull.edu.es)
 
