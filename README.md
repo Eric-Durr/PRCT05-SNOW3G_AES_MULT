@@ -32,8 +32,53 @@ $ make
 ```
 
 ### **Ejecución del programa**
-./binary_mult
 
+```bash
+./binary_mult <aes/s3g> <num1> <num2> [trace]
+```
+
+**Ejemplos**
+
+```bash
+./binary_mult aes 0x57 0x83 
+
+---- P05 AES MULT ----
+result :11000001
+
+```
+
+```bash
+./binary_mult s3g 0x57 0x83 
+
+---- P05 SNOW 3G MULT ----
+result :10010110
+
+```
+
+```bash
+./binary_mult s3g 0x57 0x83 trace 
+
+---- P05 SNOW 3G MULT ----
+STEP 0: 
+01010111
+STEP 1: 
+10101110
+STEP 2: 
+01011100 + 10101001 = 11110101
+STEP 3: 
+11101010 + 10101001 = 01000011
+STEP 4: 
+10000110
+STEP 5: 
+00001100 + 10101001 = 10100101
+STEP 6: 
+01001010 + 10101001 = 11100011
+STEP 7: 
+11000110 + 10101001 = 01101111
+result :10010110
+
+
+```
 
 ### **Lanzamiento de los tests**
 ```bash
@@ -59,8 +104,10 @@ $ ./binary_mult_test -s
 ## Referencias y enlaces:
 
 - [Enlace al repositorio](https://github.com/Eric-Durr/PRCT05-SNOW3G_AES_MULT)
-
 - [Tutorial de Doxygen para C++](https://caiorss.github.io/C-Cpp-Notes/Doxygen-documentation.html)
+
+**[Documentación online](https://eric-durr.github.io/PRCT05-SNOW3G_AES_MULT/)**
+
 ## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)
@@ -68,3 +115,4 @@ $ ./binary_mult_test -s
 ## Autoría
 
 - Eric Dürr Sierra - [alu0101027005](alu0101027005@ull.edu.es)
+

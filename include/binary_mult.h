@@ -125,8 +125,27 @@ void byte_print(uint8_t a)
  * ```
  * 
  * **Algorithm explained:**
+ *  mult of A and B
  * 
+ *  1. product result byte initialisation
+ * 
+ *   is the least significant bit of B equal to 1 ?
+ * 
+ *     yes -> product byte = A
+ *     no  -> product byte = 0
+ * 
+ *  for 7 times
+ *   
+ *  2. is the most significant bit of A equal to 1 ?
+ * 
+ *      yes -> A left shift 1 time and bitwise XOR with algorithm byte
+ *      (algorithm byte is chosen previously)
+ * 
+ *      no -> A left shift 1 time
+ * 
+ *  3. is the nth bit of B a 1 (distributive)
  *
+ *      yes -> bitwise XOR between the product result and A
  */
 
 uint8_t byte_mul(uint8_t &a, uint8_t &b, algortihm option, bool snitch = false)
