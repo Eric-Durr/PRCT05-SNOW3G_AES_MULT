@@ -136,8 +136,10 @@ public:
   const T &operator[](int pos) const { return this->at(pos); }
   T &operator[](int pos) { return this->at(pos); }
 
+  void rotate_ri(const T &new_element);
+  void rotate_le(const T &new_element);
+
 private:
-  void rotate(const T &new_element);
   void initialize(const T &def_input);
   void push_back(const T &new_element, LFSR<T> &secuence);
   bool is_a_tap(const int &i) const;
@@ -184,7 +186,7 @@ T LFSR<T>::step(void)
   {
     new_element += this->lfsr_set_[tap];
   }
-  this->rotate(new_element % 2);
+  this->rotate_ri(new_element % 2);
   return last;
 }
 
@@ -200,11 +202,19 @@ LFSR<T> LFSR<T>::generate(int steps)
 /* Private methods */
 
 template <class T>
-void LFSR<T>::rotate(const T &new_element)
+void LFSR<T>::rotate_ri(const T &new_element)
 {
   for (int i = this->length_ - 1; i > 0; --i)
     this->lfsr_set_[i] = this->lfsr_set_[i - 1];
   this->lfsr_set_[0] = new_element;
+}
+
+template <class T>
+void LFSR<T>::rotate_le(const T &new_element)
+{
+  for (int i = 0; i < this->length_ - 1; ++i)
+    this->lfsr_set_[i] = this->lfsr_set_[i + 1];
+  this->lfsr_set_[this->length_ - 1] = new_element;
 }
 
 template <class T>
