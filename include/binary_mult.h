@@ -28,7 +28,7 @@ int filter(int argc, char *argv[])
   if (argc < 4)
   {
     std::cout << "ERROR: wrong execution input\n";
-    std::cout << "USAGE: " << argv[0] << " [aes/s3g] [num1] [num2]\n";
+    std::cout << "USAGE: " << argv[0] << " <aes/s3g> <num1> <num2> [trace]\n";
     return 1;
   }
 
@@ -38,7 +38,7 @@ int filter(int argc, char *argv[])
     std::cout << "ERROR: unknown algorithm byte input - "
                  "introduced "
               << argv[1] << "\n";
-    std::cout << "USAGE: " << argv[0] << " [aes/s3g] [num1] [num2]\n";
+    std::cout << "USAGE: " << argv[0] << " <aes/s3g> <num1> <num2> [trace]\n";
     return 2;
   }
 
@@ -47,7 +47,7 @@ int filter(int argc, char *argv[])
     std::cout << "ERROR: expected hex format in numbers - "
                  "introduced "
               << argv[2] << " - expected 0xXX\n";
-    std::cout << "USAGE: " << argv[0] << " [aes/s3g] [num1] [num2]\n";
+    std::cout << "USAGE: " << argv[0] << " <aes/s3g> <num1> <num2> [trace]\n";
     return 3;
   }
 
@@ -56,7 +56,7 @@ int filter(int argc, char *argv[])
     std::cout << "ERROR: expected hex format in numbers - "
                  "introduced "
               << argv[3] << " - expected 0xYY\n";
-    std::cout << "USAGE: " << argv[0] << " [aes/s3g] [num1] [num2]\n";
+    std::cout << "USAGE: " << argv[0] << " <aes/s3g> <num1> <num2> [trace]\n";
     return 4;
   }
 
@@ -65,7 +65,7 @@ int filter(int argc, char *argv[])
     std::cout << "ERROR: expected hex number of 8 bits - "
                  "introduced "
               << argv[2] << " - expected 0xXX\n";
-    std::cout << "USAGE: " << argv[0] << " [aes/s3g] [num1] [num2]\n";
+    std::cout << "USAGE: " << argv[0] << " <aes/s3g> <num1> <num2> [trace]\n";
     return 5;
   }
 
@@ -74,7 +74,7 @@ int filter(int argc, char *argv[])
     std::cout << "ERROR: expected hex number of 8 bits - "
                  "introduced "
               << argv[3] << " - expected 0xYY\n";
-    std::cout << "USAGE: " << argv[0] << " [aes/s3g] [num1] [num2]\n";
+    std::cout << "USAGE: " << argv[0] << " <aes/s3g> <num1> <num2> [trace]\n";
     return 6;
   }
 
